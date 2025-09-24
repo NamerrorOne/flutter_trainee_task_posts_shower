@@ -19,6 +19,7 @@ class PostRemoteDataSourceImpl implements IPostRemoteDataSource {
           .toList();
       return posts;
     } on DioException catch (e) {
+      print('Dio error: ${e.message}, type: ${e.type}, stack: ${e.stackTrace}');
       throw Exception('Failed to load posts: $e');
     }
   }
